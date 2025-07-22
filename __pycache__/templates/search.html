@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Items</title>
+</head>
+<body>
+    <h2>Search Lost/Found Items</h2>
+    <form method="post">
+        <label>Search by item name:</label>
+        <input type="text" name="query">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if results %}
+        <h3>Results:</h3>
+        <ul>
+        {% for item in results %}
+            <li>{{ item.type }} - {{ item.name }} at {{ item.location }} ({{ item.reporter }})</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
